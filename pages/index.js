@@ -8,7 +8,12 @@ const Index = ({entriesData}) => {
   return (
     <Container>
       <Heading my={20}>Section for filters</Heading>
-      <Flex flexDirection="row" flexWrap="wrap">
+      <Flex
+        flexDirection="row"
+        flexWrap="wrap"
+        justifyContent="center"
+        alignItems="center"
+      >
         {entriesData.map(entry => (
           <HomeEntry
             key={entry.id}
@@ -26,6 +31,7 @@ const Index = ({entriesData}) => {
             startDate={entry.startDate}
             endDate={entry.endDate}
             url={entry.url}
+            location={entry.location}
           />
         ))}
       </Flex>

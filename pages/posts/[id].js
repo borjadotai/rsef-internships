@@ -1,7 +1,7 @@
 import React from 'react'
 import {useRouter} from 'next/router'
 import {Spinner, Box, Stack, Heading, Text} from '@chakra-ui/react'
-import {Container, HomeEntry} from '../../components'
+import {Container, Entry} from '../../components'
 import db from '../../utils/db'
 
 const NotFound = () => (
@@ -34,7 +34,7 @@ const Post = props => {
         {router.isFallback && <Spinner />}
         {!entry && <NotFound />}
         {entry && (
-          <HomeEntry
+          <Entry
             key={entry.id}
             id={entry.id}
             title={entry.title}
@@ -50,6 +50,7 @@ const Post = props => {
             startDate={entry.startDate}
             endDate={entry.endDate}
             url={entry.url}
+            location={entry.location}
           />
         )}
       </Box>
