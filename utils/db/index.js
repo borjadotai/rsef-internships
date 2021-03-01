@@ -4,7 +4,7 @@ const serviceAccount = {
   type: 'service_account',
   project_id: 'rsef-c0e6d',
   private_key_id: process.env.PRIVATE_KEY_ID,
-  private_key: process.env.PRIVATE_KEY,
+  private_key: JSON.parse(process.env.PRIVATE_KEY),
   client_email: process.env.CLIENT_EMAIL,
   client_id: process.env.CLIENT_ID,
   auth_uri: 'https://accounts.google.com/o/oauth2/auth',
