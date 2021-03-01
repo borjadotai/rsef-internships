@@ -32,6 +32,7 @@ const Index = ({entriesData}) => {
             endDate={entry.endDate}
             url={entry.url}
             location={entry.location}
+            image={entry.promotionalImage}
           />
         ))}
       </Flex>

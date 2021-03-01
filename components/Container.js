@@ -4,7 +4,7 @@ import {Header, Footer} from './'
 
 const Container = ({children}) => {
   return (
-    <Flex direction="column" align="center" jus>
+    <Flex direction="column" align="center" bgColor="gray.100">
       <Header />
       <ChakraContainer maxW={['100vw', '80vw']} centerContent minH="80vh">
         {children}

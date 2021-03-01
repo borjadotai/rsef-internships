@@ -29,7 +29,7 @@ function formatDate(input) {
 }
 
 const Line = ({icon, label, value}) => (
-  <Flex direction="row" justifyContent="center" align="center" mr={3}>
+  <Flex direction="row" justifyContent="center" alignItems="baseline" mr={3}>
     {icon}
     <Text ml={2}>
       <b>{label}:</b> {value}
@@ -37,9 +37,20 @@ const Line = ({icon, label, value}) => (
   </Flex>
 )
 
+const imageComp = () => (
+  <Box h={'210px'} bg={'gray.100'} mt={-6} mx={-6} mb={6} pos={'relative'}>
+    <img
+      src={props.image || imageFallback}
+      onError={imageFallback}
+      layout="fill"
+      objectFit="cover"
+    />
+  </Box>
+)
+
 const HomeEntry = props => {
   return (
-    <Box mr={6}>
+    <Box mr={[0, 6]} mb={6}>
       <Box
         maxW="550px"
         w="full"
@@ -49,30 +60,15 @@ const HomeEntry = props => {
         p={6}
         overflow={'hidden'}
       >
-        <Box
-          h={'210px'}
-          bg={'gray.100'}
-          mt={-6}
-          mx={-6}
-          mb={6}
-          pos={'relative'}
-        >
-          <Image
-            src={
-              props.image ||
-              'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-            }
-            layout={'fill'}
-          />
-        </Box>
         <Stack>
-          <Flex flexDir="row">
+          <Flex flexDir="row" flexWrap="wrap">
             <Text
               color={'green.500'}
               textTransform={'uppercase'}
               fontWeight={800}
               fontSize={'sm'}
               letterSpacing={1.1}
+              mr={1}
             >
               {props.location || 'Remote'}
             </Text>
@@ -82,8 +78,18 @@ const HomeEntry = props => {
               textTransform={'uppercase'}
               fontSize={'sm'}
               letterSpacing={1.1}
+              mr={1}
             >
-              {`• ${props.educationLevel} • ${props.modality}`}
+              {` • ${props.educationLevel} • `}
+            </Text>
+            <Text
+              color={'gray.500'}
+              fontWeight={600}
+              textTransform={'uppercase'}
+              fontSize={'sm'}
+              letterSpacing={1.1}
+            >
+              {props.modality}
             </Text>
           </Flex>
           <Heading
@@ -93,11 +99,17 @@ const HomeEntry = props => {
           >
             {props.title || 'Untitled Entry'}
           </Heading>
-          <Text color={'gray.500'} mb={3}>
-            {props.description}
+          <Divider />
+          <Text minH="3rem" color={'gray.500'} mb={3}>
+            {props.description.substring(0, 180)}...
           </Text>
           <Divider mb={3} />
-          <Flex direction="row" justifyContent="space-between" flexWrap="wrap">
+          <Flex
+            direction="column"
+            justifyContent="flex-start"
+            alignItems="flex-start"
+            flexWrap="wrap"
+          >
             <Line
               icon={<Icon as={FaUniversity} />}
               label="Discipline"
@@ -113,16 +125,6 @@ const HomeEntry = props => {
               label="Duration"
               value={props.duration}
             />
-            <Line
-              icon={<CalendarIcon />}
-              label="Opening date"
-              value={formatDate(props.startDate)}
-            />
-            <Line
-              icon={<CalendarIcon />}
-              label="Closing date"
-              value={formatDate(props.endDate)}
-            />
             <Line icon={<SunIcon />} label="Season" value={props.season} />
             <Line
               icon={<Icon as={GiReceiveMoney} />}
@@ -135,11 +137,25 @@ const HomeEntry = props => {
                   : 'No allowance'
               }
             />
+            <Flex direction="row" flexWrap="wrap">
+              <Line
+                icon={<CalendarIcon />}
+                label="Opening date"
+                value={formatDate(props.startDate)}
+              />
+              <Line
+                icon={<CalendarIcon />}
+                label="Closing date"
+                value={formatDate(props.endDate)}
+              />
+            </Flex>
           </Flex>
         </Stack>
         <Divider my={3} />
         <Flex justifyContent="center" alignItems="center" pt={2}>
-          <Button>Apply to this internship</Button>
+          <Link href={props.url} isExternal _hover={{textDecoration: 'none'}}>
+            <Button colorScheme="green">Apply to this internship</Button>
+          </Link>
         </Flex>
       </Box>
     </Box>

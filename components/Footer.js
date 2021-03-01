@@ -6,17 +6,18 @@ const Footer = props => {
     <Box
       w="full"
       align="center"
-      borderTop="1px solid"
-      borderTopColor="gray.100"
+      borderTop="2px solid"
+      borderTopColor="gray.200"
       padding={4}
       mt={7}
+      bgColor="white"
     >
       <Text color="gray.500">
         Created by{' '}
         <Link href="https://borja.ai" color="teal" isExternal>
           @borja
         </Link>{' '}
-        for the Real Sociedad Española de Física
+        for the Grupo de Estudiantes de la Real Sociedad Española de Física
       </Text>
     </Box>
   )
