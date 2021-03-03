@@ -120,3 +120,19 @@
     flex-direction: column;
   }
 }
+
+@media screen and (max-width: 414px) {
+  .mobileHidden {
+    display: none !important;
+  }
+
+  .mobileFull {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 414px) {
+  .desktopHidden {
+    display: none !important;
+  }
+}

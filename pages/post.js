@@ -15,7 +15,7 @@ import {
   InputGroup,
   InputLeftElement,
 } from '@chakra-ui/react'
-import {Container} from '../../components'
+import {Container} from '../components'
 
 const Post = () => {
   const router = useRouter()
@@ -82,6 +82,9 @@ const Post = () => {
             placeholder="A brief explanation as to why your opportunity is great!"
             variant="filled"
           />
+          <FormHelperText>
+            The description needs to be of at least 180 characters.
+          </FormHelperText>
         </FormControl>
         <FormControl id="educationLevel" isRequired mb={marginBetweenElements}>
           <FormLabel>Education level</FormLabel>

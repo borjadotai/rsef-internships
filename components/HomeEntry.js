@@ -50,7 +50,7 @@ const imageComp = () => (
 
 const HomeEntry = props => {
   return (
-    <Box mr={[0, 6]} mb={6}>
+    <Box ml={[0, 6]} mb={6}>
       <Box
         maxW="550px"
         w="full"
@@ -97,7 +97,9 @@ const HomeEntry = props => {
             fontSize={'xl'}
             fontFamily={'body'}
           >
-            {props.title || 'Untitled Entry'}
+            {props.title.length > 40
+              ? `${props.title.substring(0, 40)}...`
+              : props.title}
           </Heading>
           <Divider />
           <Text minH="3rem" color={'gray.500'} mb={3}>

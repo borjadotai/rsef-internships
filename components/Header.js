@@ -10,6 +10,8 @@ import {
   Link as ChakraLink,
 } from '@chakra-ui/react'
 
+import styles from '../styles/Home.module.css'
+
 const Header = props => {
   return (
     <Box
@@ -26,14 +28,21 @@ const Header = props => {
         align="center"
         justify="space-between"
         padding="1rem"
-        width={['100vw', '80vw']}
+        width={['100vw', '90vw']}
         {...props}
       >
         <Link href="/">
           <a>
             <Flex direction="row" alignItems="center">
               <Image src="/logo.png" width={90 * 0.6} height={85 * 0.6} />
-              <Heading as="h2" size="lg" isTruncated color="gray.700" ml={3}>
+              <Heading
+                as="h2"
+                size="lg"
+                isTruncated
+                color="gray.700"
+                ml={3}
+                className={styles.mobileHidden}
+              >
                 RSEF Students Group
               </Heading>
             </Flex>
@@ -48,7 +57,7 @@ const Header = props => {
           >
             Visit main website
           </ChakraLink>
-          <Link href="/admin/post">
+          <Link href="/post">
             <Button colorScheme="green" variant="outline">
               Submit internship
             </Button>
