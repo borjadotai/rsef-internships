@@ -11,7 +11,7 @@ import {
   WrapItem,
 } from '@chakra-ui/react'
 import {Container, HomeEntry, Filters} from '../components'
-import {db} from '../utils/db'
+import db from '../utils/db'
 
 const NoElements = () => (
   <Flex
