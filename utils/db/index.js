@@ -1,4 +1,5 @@
 import admin from 'firebase-admin'
+import 'firebase/analytics'
 
 const serviceAccount = {
   type: 'service_account',
@@ -19,9 +20,20 @@ if (!admin.apps.length) {
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
       databaseURL: 'https://rsef-c0e6d.firebaseio.com/',
+      apiKey: 'AIzaSyDhMCi9RzgQjOQ5jQXOWqYharwIqofBMAg',
+      authDomain: 'rsef-c0e6d.firebaseapp.com',
+      projectId: 'rsef-c0e6d',
+      storageBucket: 'rsef-c0e6d.appspot.com',
+      messagingSenderId: '802788541782',
+      appId: '1:802788541782:web:5024215e6177292a8602f7',
+      measurementId: 'G-VMQV52F439',
     })
   } catch (error) {
     console.log('Firebase admin initialization error', error.stack)
   }
 }
-export default admin.firestore()
+
+const db = admin.firestore()
+const analytics = admin.analytics
+
+export {db, analytics}
