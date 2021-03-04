@@ -132,11 +132,14 @@ const HomeEntry = props => {
               icon={<Icon as={GiReceiveMoney} />}
               label="Allowance"
               value={
-                props.hasAllowance === 'Monthly allowance'
-                  ? `${props.allowanceAmount}€ per month`
-                  : props.hasAllowance === 'One-time allowance'
-                  ? props.allowanceAmount
-                  : 'No allowance'
+                props.hasAllowance === 'No allowance' ||
+                props.hasAllowance === 'Accommodation and travel support'
+                  ? props.hasAllowance
+                  : `${props.allowanceAmount}€ ${
+                      props.hasAllowance === 'Monthly allowance'
+                        ? 'per month'
+                        : 'one time payment'
+                    }`
               }
             />
             <Flex direction="row" flexWrap="wrap">

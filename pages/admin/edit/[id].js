@@ -202,6 +202,9 @@ const EditEntry = () => {
                   <option value="No allowance">No allowance</option>
                   <option value="One time allowance">One time allowance</option>
                   <option value="Monthly allowance">Monthly allowance</option>
+                  <option value="Accommodation and travel support">
+                    Accommodation and travel support
+                  </option>
                 </Select>
               </FormControl>
               {(content.hasAllowance === 'One time allowance' ||
